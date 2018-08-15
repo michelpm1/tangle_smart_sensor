@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "dependencies": {
     "dotenv-safe": "^6.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "http": "0.0.0",
-    "import": "0.0.6"
+    "import": "0.0.6",
+    "mongoose": "^5.2.8"
   },
   "scripts": {
     "start": "nodemon app.js"

@@ -1,16 +1,33 @@
 
 // make bluebird default Promise
 const { port, env } = require('./config/vars');
-var express = require('express');
-var app = express();
-//const mongoose = require('mongoose');
+const express = require('express');
+let app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 // open mongoose connection
-// mongoose.connect();
+mongoose.connect();
 
-// listen to requests
+
+/**
+ * Controllers (route handlers).
+ */
+const homeController = require('./controllers/home');
+// const userController = require('./controllers/user');
+// const apiController = require('./controllers/api');
+// const contactController = require('./controllers/contact');
+
+
+
+app.get('/', homeController.index);
+
+// listen to request
+
 app.listen(port, () => console.info(`server started on port ${port} (${env})`));
-
 
 /**
  * Exports express
