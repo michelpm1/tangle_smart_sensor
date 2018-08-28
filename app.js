@@ -1,5 +1,6 @@
-
-// make bluebird default Promise
+require('babel-register')({
+  presets: [ 'env' ]
+});
 const { port, env } = require('./config/vars');
 const express = require('express');
 let app = express();
@@ -10,9 +11,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 // open mongoose connection
-mongoose.connect();
-
-
+const db = mongoose.connect('mongodb://localhost/tangle_sensor');
 /**
  * Controllers (route handlers).
  */
